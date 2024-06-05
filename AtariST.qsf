@@ -13,7 +13,7 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 
-set_global_assignment -name LAST_QUARTUS_VERSION "17.0.2 Standard Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
 
 set_global_assignment -name GENERATE_RBF_FILE ON
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
@@ -21,14 +21,14 @@ set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name SAVE_DISK_SPACE OFF
 set_global_assignment -name SMART_RECOMPILE ON
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
-set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 125
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS OFF
 set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
 set_global_assignment -name FINAL_PLACEMENT_OPTIMIZATION ALWAYS
 set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
-set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
+#set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
 set_global_assignment -name ALLOW_POWER_UP_DONT_CARE ON
 set_global_assignment -name QII_AUTO_PACKED_REGISTERS NORMAL
 set_global_assignment -name ROUTER_LCELL_INSERTION_AND_LOGIC_DUPLICATION ON
@@ -54,4 +54,31 @@ set_global_assignment -name SEED 1
 source sys/sys.tcl
 source sys/sys_analog.tcl
 source files.qip
+
+set_global_assignment -name CDF_FILE jtag.cdf
+set_global_assignment -name QIP_FILE sys/sys.qip
+set_global_assignment -name QIP_FILE rtl/pll.qip
+set_global_assignment -name QIP_FILE sys/pll_hdmi.qip
+set_global_assignment -name QIP_FILE sys/pll_audio.qip
+set_global_assignment -name QIP_FILE rtl/fx68k/fx68k.qip
+set_global_assignment -name QIP_FILE rtl/gstmcu/gstmcu.qip
+set_global_assignment -name QIP_FILE rtl/ikbd/ikbd.qip
+set_global_assignment -name QIP_FILE rtl/mfp/mfp.qip
+set_global_assignment -name QIP_FILE rtl/fdc1772/fdc1772.qip
+set_global_assignment -name VERILOG_FILE rtl/acsi.v
+set_global_assignment -name VERILOG_FILE rtl/viking.v
+set_global_assignment -name VERILOG_FILE rtl/mste_ctrl.v
+set_global_assignment -name VERILOG_FILE rtl/acia.v
+set_global_assignment -name VERILOG_FILE rtl/dma.v
+set_global_assignment -name VERILOG_FILE rtl/sdram.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ym2149.sv
+set_global_assignment -name VHDL_FILE rtl/vol_table_array.vhd
+set_global_assignment -name VERILOG_FILE rtl/ste_joypad.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/stBlitter.sv
+set_global_assignment -name VERILOG_FILE rtl/linedoubler.v
+set_global_assignment -name VERILOG_FILE rtl/cubase2_dongle.v
+set_global_assignment -name VERILOG_FILE rtl/cubase3_dongle.v
+set_global_assignment -name VERILOG_FILE hps_ext.v
+set_global_assignment -name SDC_FILE AtariST.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE AtariST.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
